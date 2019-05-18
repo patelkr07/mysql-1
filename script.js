@@ -1,4 +1,5 @@
 var mysql = require("mysql");
+var inquirer = require("inquirer");
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -16,6 +17,7 @@ connection.connect(function(err) {
     console.log("connected as id " + connection.threadId);
     console.log("\n")
     queryBamazon();
+    
 })
 
 function queryBamazon() {
@@ -27,3 +29,16 @@ function queryBamazon() {
         console.log("---------------------------------------------")
     });
 }
+
+function start() {
+    inquirer
+    .prompt({
+        name: "askID",
+        type: "input",
+        message: "What is the ID of the product you'd like to purchase?"
+    })
+    .then(function(answer) {
+        if(answer.askID === "1")
+    }
+}
+
